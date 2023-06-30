@@ -1,20 +1,18 @@
-async function getUser(id ) {
-  
+async function getUser(id) {
  const res = await  fetch(`https://reqres.in/api/users/${id}`)
  const data = await res.json();
-  return data
-  
+  return data.data
 }
 export default async function Users({ params }) {
 
  const info = await getUser(params.id)
- console.log(info)
+
   return (
     <div>
       <h1>users</h1>
-      <p>
+      <div>
         {JSON.stringify(info)}
-      </p>
+      </div>
     </div>
   );
 }
